@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 如果加上 '' 单引号 就会显示成 字符串的形式 看代码的 class属性 -->
+        <h2 class="title" :class="['active', 'line']">{{message}}</h2>
+        <h2 class="title" :class="[active, line]">{{message}}</h2>
+        <h2 class="title" :class="getClasses()">{{message}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                message: '你好啊',
+                active: 'aaa',
+                line: 'bbb'
+            },
+            methods:{
+                getClasses: function () {
+                    return [this.active, this.line]
+                }
+            }
+        })
+    </script>
+</body>
+</html>
